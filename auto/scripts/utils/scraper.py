@@ -20,7 +20,7 @@ def gplay_scrape(package_name):
     app_url = f"https://play.google.com/store/apps/details?id={package_name}"
     response = requests.get(app_url)
     soup = BeautifulSoup(response.text, "html.parser")
-    app_name_element = soup.select_one("h1 > span")
+    app_name_element = soup.select_one("h1")
     app_icon_element = soup.select_one("div.Il7kR > img")
     if app_icon_element is None:
         app_icon_element = soup.select_one("div.qxNhq > img")

@@ -1,49 +1,55 @@
 [ {
-  "patchName" : "Custom branding Microg name",
+  "patchName" : "Custom branding name YouTube",
   "options" : [ {
-    "key" : "MicroGAppName",
-    "value" : "MicroG"
-  } ]
-}, {
-  "patchName" : "Custom branding Music name",
-  "options" : [ {
-    "key" : "MusicLongName",
-    "value" : "ReVanced Music Extended"
-  }, {
-    "key" : "MusicShortName",
-    "value" : "YTM Extended"
-  } ]
-}, {
-  "patchName" : "Custom branding YouTube name",
-  "options" : [ {
-    "key" : "YouTubeAppName",
+    "key" : "AppName",
     "value" : "ReVanced Extended"
+  } ]
+}, {
+  "patchName" : "Custom branding name YouTube Music",
+  "options" : [ {
+    "key" : "AppNameNotification",
+    "value" : "ReVanced Extended Music"
+  }, {
+    "key" : "AppNameLauncher",
+    "value" : "RVX Music"
   } ]
 }, {
   "patchName" : "Custom double tap length",
   "options" : [ {
     "key" : "DoubleTapLengthArrays",
-    "value" : "1, 3, 5, 10, 15, 20, 30, 60, 120, 180"
+    "value" : "3, 5, 10, 15, 20, 30, 60, 120, 180"
   } ]
 }, {
   "patchName" : "Custom package name",
   "options" : [ {
-    "key" : "YouTubePackageName",
+    "key" : "PackageNameYouTube",
     "value" : "app.rvx.android.youtube"
   }, {
-    "key" : "MusicPackageName",
+    "key" : "PackageNameYouTubeMusic",
     "value" : "app.rvx.android.apps.youtube.music"
   } ]
 }, {
-  "patchName" : "Reddit settings",
+  "patchName" : "Overlay buttons",
   "options" : [ {
-    "key" : "RedditSettings",
+    "key" : "OutlineIcon",
+    "value" : false
+  } ]
+}, {
+  "patchName" : "Premium heading",
+  "options" : [ {
+    "key" : "UsePremiumHeading",
     "value" : true
+  } ]
+}, {
+  "patchName" : "SponsorBlock",
+  "options" : [ {
+    "key" : "OutlineIcon",
+    "value" : false
   } ]
 }, {
   "patchName" : "Theme",
   "options" : [ {
-    "key" : "darkThemeBackgroundColor",
+    "key" : "DarkThemeBackgroundColor",
     "value" : "@android:color/black"
   } ]
 }, {
