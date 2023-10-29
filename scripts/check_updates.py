@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from datetime import datetime
 
 import requests
 from loguru import logger
@@ -55,7 +56,8 @@ def get_patches_dls(dict):
 def get_patch_data(dl_list):
     api_dls = []
     tags = []
-    json_data = []
+    tag_data = []
+    releases = []
     for url in dl_list:
         api_url = github_api_url(url)
         api_dls.append(api_url)
@@ -63,9 +65,10 @@ def get_patch_data(dl_list):
         release_json = response.json()
         tag = release_json["tag_name"]
         tags.append(tag)
-        json_data.append({"patches_json_dl": url, "tag_name": tag})
+        tag_data.append({"patches_json_dl": url, "tag_name": tag})
+        releases.append({"patches_json_dl": url, "response": release_json})
     print("Different Patch DLs:\n\n", "\n ".join(dl_list), "\n", flush=True)
-    return json_data
+    return tag_data, releases
 
 
 @logger.catch
@@ -114,6 +117,21 @@ def compare_tags(old_json, new_json):
 
 
 @logger.catch
+def format_changelog(response):
+    source_name = "/".join(response["html_url"].split("/")[3:5])
+    date_obj = datetime.strptime(response["published_at"], "%Y-%m-%dT%H:%M:%SZ")
+    release_date = date_obj.strftime("%B %d, %Y, %H:%M:%S UTC")
+
+    content = (
+        f"# {source_name}\n\n"
+        f"***Release Version: [{response['tag_name']}]({response['html_url']})***  \n"
+        f"***Release Date: {release_date}***  \n"
+        f"***Changelog***:\n\n{response['body']}\n\n"
+    )
+    return f"{content}"
+
+
+@logger.catch
 def trigger_workflow(access_token, repository, branch, workflow_name):
     url = f"https://api.github.com/repos/{repository}/actions/workflows/{workflow_name}/dispatches"
 
@@ -150,6 +168,16 @@ def manage_tasks(action):
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(compare_tags.data, f, indent=4)
+        action = "write_changelog"
+
+    if action == "write_changelog":
+        print("Updating the 'changelog.md' file.", flush=True)
+        doc = ""
+        for release in parse_env.releases:
+            doc += format_changelog(response=release["response"])
+        os.remove(changelog_file) if os.path.exists(changelog_file) else None
+        with open(changelog_file, "w", encoding="utf-8") as f:
+            f.write(doc)
 
 
 @logger.catch
@@ -209,11 +237,14 @@ def parse_env():
         env_dict[key] = value
 
     dl_list = get_patches_dls(env_dict)
-    latest_patches_data = get_patch_data(dl_list)
-    latest_patches_data = sorted(
-        latest_patches_data,
-        key=lambda x: (x["patches_json_dl"] in old_patches_dl_values, x["patches_json_dl"]),
+    latest_patches_data, releases_data = get_patch_data(dl_list)
+    sorting_key = lambda x: (
+        x["patches_json_dl"] in old_patches_dl_values,
+        x["patches_json_dl"],
     )
+    latest_patches_data = sorted(latest_patches_data, key=sorting_key)
+    releases_data = sorted(releases_data, key=sorting_key)
+    parse_env.releases = releases_data
     action = compare_tags(old_patches_data, latest_patches_data)
     manage_tasks(action)
 
@@ -229,6 +260,7 @@ if __name__ == "__main__":
         branch = "main"  # Branch to get the env
         monitored_branch = "check-updates"  # Branch to get the monitored-patches.json
         output_file = "scripts/monitored-patches.json"
+        changelog_file = "changelog.md"
 
         default_patch_dl = "https://github.com/revanced/revanced-patches/releases/latest"
         parse_env()

@@ -36,7 +36,7 @@ jobs:
           branch: check-updates
           create_branch: true
           skip_checkout: true
-          file_pattern: 'scripts/monitored-patches.json'
-          commit_options: '--allow-empty'
+          file_pattern: "scripts/monitored-patches.json changelog.md"
+          commit_options: "--allow-empty"
           commit_message: ⬆️ Fetched updates for patches dl
-          push_options: '--force'
+          push_options: "--force"
