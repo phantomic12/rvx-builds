@@ -43,7 +43,7 @@ on:
         default: false
       JOIN_NOTIFY:
         type: boolean
-        description: 'Notify with JOIN API when the build is complete.'
+        description: "Notify with JOIN API when the build is complete."
         required: false
         default: true
       PRE_RELEASE:
@@ -86,7 +86,7 @@ jobs:
         id: get-date
         run: |
           echo "date=$(TZ='Asia/Kolkata' date +"%Y.%m.%d-%H.%M.%S")" >> $GITHUB_OUTPUT
-          curl https://github.com/nikhilbadyal/docker-py-revanced/blob/changelogs/changelog.md > changelog.md
+          curl https://raw.githubusercontent.com/IMXEren/rvx-builds/check-updates/changelog.md > changelog.md
 
       - name: Delete Older Releases
         uses: nikhilbadyal/ghaction-rm-releases@v0.0.5
@@ -101,6 +101,7 @@ jobs:
           artifacts: "*-output.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: Build-${{ steps.get-date.outputs.date }}
+          bodyFile: changelog.md
           artifactErrorsFailBuild: true
           prerelease: ${{ inputs.PRE_RELEASE }}
 
