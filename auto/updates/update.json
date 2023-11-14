@@ -1,9 +1,9 @@
 {
     "updates": [
         {
-            "version": "23.10.04",
+            "version": "23.11.11",
             "title": "🤖 RVX-Builds • Major Release",
-            "text": "⭐ New!! Custom Patch Resources. Apologise for the delay caused due to personal issues. Thinking of making a video tutorial (no ETA). Kindly sync the repository as well as the tasker project.",
+            "text": "⭐ New!! Patch Options. Kindly sync the repository as well as the tasker project.",
             "url": "https://www.github.com/IMXEren/rvx-builds/blob/main/auto/updates/CHANGELOG.md",
             "icon": "https://i.imgur.com/pVyZw7d.png"
         }

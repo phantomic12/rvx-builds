@@ -8,10 +8,26 @@ The changelogs listed here are combined from both this repository and the **RVX-
 
 <details><summary>Click to expand</summary>
 
+- [v23.11.14](#v231114)
 - [v23.10.04](#v231004)
 - [v23.08.04](#v230804)
 
 </details>
+
+## v23.11.14
+
+### ⚙️ Patch Options
+
+Patch options is now integrated in Tasker project. Access from `Manager > Apps > Patch Apps > Patches > Edit Patch Options`.
+
+### Changes
+
+- Removed `/apps` folder from the repository.
+- Added apkmonk & gdrive support for `APK_DL` links in tasker project.
+
+### Notes
+
+- I've experienced some major lags (or crash) after accessing patch options and reported the same to Tasker DEV. I'd update again, once fixed.
 
 ## v23.10.04
 
