@@ -1,4 +1,16 @@
 [ {
+  "patchName" : "Custom branding icon YouTube",
+  "options" : [ {
+    "key" : "AppIcon",
+    "value" : "Revancify Blue"
+  } ]
+}, {
+  "patchName" : "Custom branding icon YouTube Music",
+  "options" : [ {
+    "key" : "AppIcon",
+    "value" : "Revancify Blue"
+  } ]
+}, {
   "patchName" : "Custom branding name YouTube",
   "options" : [ {
     "key" : "AppName",
@@ -32,7 +44,7 @@
   "patchName" : "Overlay buttons",
   "options" : [ {
     "key" : "OutlineIcon",
-    "value" : false
+    "value" : null
   } ]
 }, {
   "patchName" : "Premium heading",
@@ -47,7 +59,7 @@
   "patchName" : "SponsorBlock",
   "options" : [ {
     "key" : "OutlineIcon",
-    "value" : false
+    "value" : null
   } ]
 }, {
   "patchName" : "Theme",
@@ -65,22 +77,19 @@
     "value" : "@android:color/white"
   } ]
 }, {
-  "patchName" : "Custom theme",
+  "patchName" : "Spoof SIM country",
   "options" : [ {
-    "key" : "backgroundColor",
-    "value" : "@android:color/black"
+    "key" : "networkCountryIso",
+    "value" : null
   }, {
-    "key" : "accentColor",
-    "value" : "#ff1ed760"
-  }, {
-    "key" : "accentPressedColor",
-    "value" : "#ff169c46"
+    "key" : "simCountryIso",
+    "value" : null
   } ]
 }, {
-  "patchName" : "Spoof client",
+  "patchName" : "Change package name",
   "options" : [ {
-    "key" : "client-id",
-    "value" : null
+    "key" : "packageName",
+    "value" : "Default"
   } ]
 }, {
   "patchName" : "Custom branding",
@@ -92,9 +101,24 @@
     "value" : "ReVanced*Logo"
   } ]
 }, {
-  "patchName" : "Change package name",
+  "patchName" : "Spoof client",
   "options" : [ {
-    "key" : "packageName",
-    "value" : "Default"
+    "key" : "client-id",
+    "value" : null
+  } ]
+}, {
+  "patchName" : "Custom theme",
+  "options" : [ {
+    "key" : "backgroundColor",
+    "value" : "@android:color/black"
+  }, {
+    "key" : "backgroundColorSecondary",
+    "value" : "#ff282828"
+  }, {
+    "key" : "accentColor",
+    "value" : "#ff1ed760"
+  }, {
+    "key" : "accentColorPressed",
+    "value" : "#ff169c46"
   } ]
 } ]
