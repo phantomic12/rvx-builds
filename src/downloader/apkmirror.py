@@ -1,8 +1,6 @@
 """Downloader Class."""
-import time
 from typing import Any, Self
 
-import requests
 from bs4 import BeautifulSoup, Tag
 from loguru import logger
 
@@ -10,7 +8,7 @@ from src.app import APP
 from src.downloader.download import Downloader
 from src.downloader.sources import APK_MIRROR_BASE_URL
 from src.exceptions import APKMirrorAPKDownloadError
-from src.utils import bs4_parser, contains_any_word, handle_request_response, request_header, request_timeout
+from src.utils import bs4_parser, contains_any_word, handle_request_response, request_header, start_request
 
 
 class ApkMirror(Downloader):
@@ -77,9 +75,7 @@ class ApkMirror(Downloader):
     @staticmethod
     def _extracted_search_div(url: str, search_class: str) -> Tag:
         """Extract search div."""
-        logger.info("Pausing for 15 seconds...")
-        time.sleep(15)
-        r = requests.get(url, headers=request_header, timeout=request_timeout)
+        r = start_request(url, headers=request_header)
         handle_request_response(r, url)
         soup = BeautifulSoup(r.text, bs4_parser)
         return soup.find(class_=search_class)  # type: ignore[return-value]
