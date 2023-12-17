@@ -2,6 +2,7 @@
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -28,6 +29,7 @@ request_header = {
 bs4_parser = "html.parser"
 changelog_file = "changelog.md"
 request_timeout = 60
+request_retries = 15
 session = Session()
 session.headers["User-Agent"] = request_header["User-Agent"]
 
@@ -98,6 +100,37 @@ def get_parent_repo() -> str:
         the URL of the parent repository, which is "https://github.com/nikhilbadyal/docker-py-revanced".
     """
     return "https://github.com/nikhilbadyal/docker-py-revanced"
+
+
+def start_request(url: str, headers: dict[str, str]) -> Response:
+    """The `start_request()` function makes the GET request with the possible retrying methods.
+
+    Parameters
+    ----------
+    response : Response
+        The parameter `response` is of type `Response`, which is likely referring to a response object from
+    an HTTP request. This object typically contains information about the response received from the
+    server, such as the status code, headers, and response body.
+    url: str
+        The url on which to make request.
+    headers: dict[str, str]
+        The request headers to be used while making the request.
+
+    Returns
+    -------
+    response: Response
+        The response object from the HTTP request.
+    """
+    i = 0
+    response = session.get(url, headers=headers, allow_redirects=True, timeout=request_timeout)
+    while response.status_code != status_code_200 and i < request_retries:
+        logger.info(f"Retrying ({i+1})...")
+        i += 1
+        if i % 5 == 0:
+            time.sleep(15 * (i // 5))
+        # else: time.sleep(i)
+        response = session.get(url, headers=headers, allow_redirects=True, timeout=request_timeout)
+    return response
 
 
 def handle_request_response(response: Response, url: str) -> None:
