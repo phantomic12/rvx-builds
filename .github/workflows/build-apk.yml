@@ -41,11 +41,6 @@ on:
         type: boolean
         required: false
         default: false
-      DEBUG_ENABLED:
-        type: boolean
-        description: 'Run the build with tmate debugging enabled.'
-        required: false
-        default: false
       JOIN_NOTIFY:
         type: boolean
         description: "Notify with JOIN API when the build is complete."
@@ -70,7 +65,6 @@ jobs:
     uses: ./.github/workflows/build-artifact.yml
     with:
       COMMIT_CHANGELOG: ${{ inputs.COMMIT_CHANGELOG }}
-      DEBUG_ENABLED: ${{ inputs.DEBUG_ENABLED }}
     secrets:
       ENVS: ${{ secrets.ENVS }}
       REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
