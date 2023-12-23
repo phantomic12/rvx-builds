@@ -39,6 +39,9 @@ If you don't define anything in `.env` file or `ENVS` in `GitHub Secrets`, these
 | [TELEGRAM_BOT_TOKEN](#telegram-support)                  |          APKs Sender for Telegram upload          | None                                                                                                     |
 | [TELEGRAM_API_ID](#telegram-support)                     |         Used for telegram Authentication          | None                                                                                                     |
 | [TELEGRAM_API_HASH](#telegram-support)                   |         Used for telegram Authentication          | None                                                                                                     |
+| [APPRISE_URL](#apprise)                                  |                   Apprise URL .                   | None                                                                                                     |
+| [APPRISE_NOTIFICATION_TITLE](#apprise)                   |           Apprise Notification Title .            | None                                                                                                     |
+| [APPRISE_NOTIFICATION_BODY](#apprise)                    |            Apprise Notification Body .            | None                                                                                                     |
 
 `*` - Can be overridden for individual app.
 
@@ -279,13 +282,20 @@ If you don't define anything in `.env` file or `ENVS` in `GitHub Secrets`, these
 17. <a id="virus-total"></a>You can scan your built apks files with VirusTotal. For that, Add `VT_API_KEY` in `GitHub secrets`.
 18. <a id="reddit-client"></a>If you want to patch reddit apps using your own Client ID. You can provide your Client ID
     as secret `REDDIT_CLIENT_ID` in `GitHub secrets`.
-19. <a id="sample-env"></a>Sample Envs
+19. <a id="apprise"></a>[Apprise](https://github.com/caronc/apprise)<br>
+    We also have apprise support to upload built apk anywhere. To use apprise, add below envs in `GitHub secrets`.
+    ```ini
+    APPRISE_URL=tgram://bot-token/chat-id
+    APPRISE_NOTIFICATION_BODY=What a great Body
+    APPRISE_NOTIFICATION_TITLE=What a great title
+    ```
+20. <a id="sample-env"></a>Sample Envs
 
     <img src="https://i.imgur.com/FxOtiGs.png" width="600" style="left">
 
     Here's the [another sample](/.env.example) in file format.<br>
     `#` are used to comment out lines. For example, `# APP_NAME_VERSION=latest_supported` is simply used to depict the latest supported the patch version.
-20. <a id="workflow-permission"></a>Make your Action has write access. If not click here: https://github.com/OWNER/REPO/settings/actions. In the bottom give read and write access to Actions.
+21. <a id="workflow-permission"></a>Make your Action has write access. If not click here: https://github.com/OWNER/REPO/settings/actions. In the bottom give read and write access to Actions.
 
     <img src="https://i.imgur.com/STSv2D3.png" width="400">
 

@@ -127,7 +127,7 @@ def start_request(url: str, headers: dict[str, str]) -> Response:
         logger.info(f"Retrying ({i+1})...")
         i += 1
         if i % 5 == 0:
-            time.sleep(15 * (i // 5))
+            time.sleep(20 * (i // 5))
         # else: time.sleep(i)
         response = session.get(url, headers=headers, allow_redirects=True, timeout=request_timeout)
     return response
