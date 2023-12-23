@@ -1,4 +1,13 @@
 [ {
+  "patchName" : "Change package name",
+  "options" : [ {
+    "key" : "PackageNameReddit",
+    "value" : "com.reddit.frontpage.rvx"
+  }, {
+    "key" : "packageName",
+    "value" : "Default"
+  } ]
+}, {
   "patchName" : "Custom branding icon YouTube",
   "options" : [ {
     "key" : "AppIcon",
@@ -9,6 +18,12 @@
   "options" : [ {
     "key" : "AppIcon",
     "value" : "Revancify Blue"
+  } ]
+}, {
+  "patchName" : "Custom branding name Reddit",
+  "options" : [ {
+    "key" : "AppName",
+    "value" : "RVX Reddit"
   } ]
 }, {
   "patchName" : "Custom branding name YouTube",
@@ -77,6 +92,12 @@
     "value" : "@android:color/white"
   } ]
 }, {
+  "patchName" : "GmsCore support",
+  "options" : [ {
+    "key" : "gmsCoreVendor",
+    "value" : "com.mgoogle"
+  } ]
+}, {
   "patchName" : "Spoof SIM country",
   "options" : [ {
     "key" : "networkCountryIso",
@@ -84,12 +105,6 @@
   }, {
     "key" : "simCountryIso",
     "value" : null
-  } ]
-}, {
-  "patchName" : "Change package name",
-  "options" : [ {
-    "key" : "packageName",
-    "value" : "Default"
   } ]
 }, {
   "patchName" : "Custom branding",
