@@ -1,4 +1,5 @@
 """Downloader Class."""
+
 from typing import Any, Self
 
 from bs4 import BeautifulSoup, Tag

@@ -72,7 +72,7 @@ jobs:
   upload-to-github:
     name: GitHub Upload
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     needs: build-apk
     if: inputs.GITHUB_UPLOAD
 
@@ -148,7 +148,7 @@ jobs:
     needs: build-apk
     name: Apprise Notifier
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     if: inputs.APPRISE_NOTIFY
 
     steps:
