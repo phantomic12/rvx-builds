@@ -108,10 +108,6 @@ def start_request(url: str, headers: dict[str, str]) -> Response:
 
     Parameters
     ----------
-    response : Response
-        The parameter `response` is of type `Response`, which is likely referring to a response object from
-    an HTTP request. This object typically contains information about the response received from the
-    server, such as the status code, headers, and response body.
     url: str
         The url on which to make request.
     headers: dict[str, str]
