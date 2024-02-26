@@ -82,7 +82,7 @@ def apksos_scrape(package_name):
         app_icon = app_icon.replace("_1.png", "_2.png")
     if app_name_element:
         app_name = app_name_element.text
-        app_name = re.sub(r".*?\n\s+", "", app_name).strip()
+        app_name = re.sub(r".*?\n\s*?", "", app_name).strip()
     logger.debug(app_name)
     return app_name, app_icon, app_url
 
