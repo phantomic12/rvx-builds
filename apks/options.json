@@ -8,6 +8,12 @@
     "value" : "Default"
   } ]
 }, {
+  "patchName" : "Custom branding heading",
+  "options" : [ {
+    "key" : "header",
+    "value" : "yt_premium_wordmark_header"
+  } ]
+}, {
   "patchName" : "Custom branding icon YouTube",
   "options" : [ {
     "key" : "AppIcon",
@@ -59,16 +65,10 @@
   "patchName" : "Overlay buttons",
   "options" : [ {
     "key" : "OutlineIcon",
-    "value" : null
-  } ]
-}, {
-  "patchName" : "Premium heading",
-  "options" : [ {
-    "key" : "UsePremiumHeading",
     "value" : true
   }, {
-    "key" : "usePremiumHeading",
-    "value" : true
+    "key" : "BottomMargin",
+    "value" : "0.0dip"
   } ]
 }, {
   "patchName" : "SponsorBlock",
@@ -92,36 +92,6 @@
     "value" : "@android:color/white"
   } ]
 }, {
-  "patchName" : "GmsCore support",
-  "options" : [ {
-    "key" : "gmsCoreVendor",
-    "value" : "com.mgoogle"
-  } ]
-}, {
-  "patchName" : "Spoof SIM country",
-  "options" : [ {
-    "key" : "networkCountryIso",
-    "value" : null
-  }, {
-    "key" : "simCountryIso",
-    "value" : null
-  } ]
-}, {
-  "patchName" : "Custom branding",
-  "options" : [ {
-    "key" : "appName",
-    "value" : "YouTube ReVanced"
-  }, {
-    "key" : "iconPath",
-    "value" : "ReVanced*Logo"
-  } ]
-}, {
-  "patchName" : "Spoof client",
-  "options" : [ {
-    "key" : "client-id",
-    "value" : null
-  } ]
-}, {
   "patchName" : "Custom theme",
   "options" : [ {
     "key" : "backgroundColor",
@@ -135,5 +105,41 @@
   }, {
     "key" : "accentColorPressed",
     "value" : "#ff169c46"
+  } ]
+}, {
+  "patchName" : "Custom branding",
+  "options" : [ {
+    "key" : "appName",
+    "value" : "YouTube ReVanced"
+  }, {
+    "key" : "iconPath",
+    "value" : "ReVanced*Logo"
+  } ]
+}, {
+  "patchName" : "Change header",
+  "options" : [ {
+    "key" : "header",
+    "value" : "revanced*borderless"
+  } ]
+}, {
+  "patchName" : "GmsCore support",
+  "options" : [ {
+    "key" : "gmsCoreVendorGroupId",
+    "value" : "app.revanced"
+  } ]
+}, {
+  "patchName" : "Spoof client",
+  "options" : [ {
+    "key" : "client-id",
+    "value" : null
+  } ]
+}, {
+  "patchName" : "Spoof SIM country",
+  "options" : [ {
+    "key" : "networkCountryIso",
+    "value" : null
+  }, {
+    "key" : "simCountryIso",
+    "value" : null
   } ]
 } ]
