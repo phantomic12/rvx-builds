@@ -20,6 +20,9 @@ class ApkMirror(Downloader):
         link_page_source = self._extract_source(link)
         notes_divs = self._extracted_search_source_div(link_page_source, "tab-pane")
         apk_type = self._extracted_search_source_div(link_page_source, "apkm-badge").get_text()
+        link_page_source = self._extract_source(link)
+        notes_divs = self._extracted_search_source_div(link_page_source, "tab-pane")
+        apk_type = self._extracted_search_source_div(link_page_source, "apkm-badge").get_text()
         extension = "zip" if apk_type == "BUNDLE" else "apk"
         possible_links = notes_divs.find_all("a")
         for possible_link in possible_links:
