@@ -1,8 +1,15 @@
 # Extras
 
+## Syncing Repository
+
+Make sure to do below steps once in a while (daily or weekly) to keep the builder bug free.
+
+<img src="https://i.imgur.com/CbdH7vM.png" width="400" alt="Failed to load image!">
+
 ## GitHub Secrets
 
 Secrets are variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in GitHub Actions workflows. GitHub Actions can only read a secret if you explicitly include the secret in a workflow.
+
 - Navigate to your repo page
 - Click on `Settings` tab > `Security` section > `Secrets and variables` drop-down > `Actions`
 - OR Navigate to this page: https://github.com/OWNER/REPO/settings/secrets/actions
@@ -16,15 +23,17 @@ To use Join API in conjugate with **RVX-Builds** project, add secrets `JOIN_API_
 
 Make your Action has write access. If not click here: https://github.com/OWNER/REPO/settings/actions. In the bottom give read and write access to Actions.
 
-<img src="https://i.imgur.com/STSv2D3.png" width="400">
+<img src="https://i.imgur.com/STSv2D3.png" width="400" alt="Failed to load image!">
 
 ## Scheduled Workflows
 
 Some important scheduled workflows are -
+
 - Get Patch Apps Info
 - Update Checker
 
 If you've forked the project, make sure that your scheduled workflows are enabled.
+
 - Click on `Actions` tab
 - All the workflows are listed on the left panel
 - Click on any scheduled workflow

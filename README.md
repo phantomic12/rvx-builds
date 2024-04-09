@@ -20,7 +20,7 @@ The Tool now supports resource config at app level. You can patch A app with X r
 
 **Are you tired of patching ReVanced apps on your mobile devices? Which version to patch and which apk to provide for patching? Is the waiting period long enough and still the patch doesn't work as it should? Device compatibility issues? Auto-updates?...** All that can be accomplished with the help of this [**github repository**](https://github.com/IMXEren/rvx-builds) (for patching & building) and this [**RVX-Builds**](https://taskernet.com/shares/?user=AS35m8k0QSchKA1x02SixFIhiL41a828J1qapOYfcEuyL2zSn%2FfJTN5WVSi01o18x6EAFb4%3D&id=Project%3ARVX-Builds) project in Tasker (for interactive selection & automation).
 
-***Note: Neither the mentioned github repository nor the Tasker project are in anyway officially related to ReVanced Team. All this work falls under 3rd party so please don't ask for support from ReVanced Team regarding it.***
+**_Note: Neither the mentioned github repository nor the Tasker project are in anyway officially related to ReVanced Team. All this work falls under 3rd party so please don't ask for support from ReVanced Team regarding it._**
 
 ## Requirements
 
@@ -61,10 +61,10 @@ It'll be better for yourself if you have some [basic knowledge about Tasker](htt
 1. Go to this [page](https://github.com/settings/tokens) and `Generate new token > Classic`. Enter `RVX-Builds` in Note, set any expiration period and select these scopes (sufficient) - `repo, workflow, write:packages`. Click `Generate Token`. Note the token - `ghp_*`
 2. Import [**RVX-Builds**](https://taskernet.com/shares/?user=AS35m8k0QSchKA1x02SixFIhiL41a828J1qapOYfcEuyL2zSn%2FfJTN5WVSi01o18x6EAFb4%3D&id=Project%3ARVX-Builds) project on Tasker and setup the GitHub credentials. It'll popup itself for you to setup or you can run `RVX-Builds - Setup` Task in `Tasks` Tab inside `RVX-Builds` Project. Projects are listed horizontally on bottom bar.
 3. Once completed, you're ready to customize patches. Run `RVX-Builds - Manager` task to do so. It'll consist of menu items -
-    - Apps: To modify app related properties. (**Must configure**)
-    - Downloads: To modify download & installation of app properties. (**Must configure**)
-    - Merge: To merge your customization (locally on Tasker) with the `.env` file in your GitHub Repo. Only shown if you've made customization changes in *Apps* or clicked it (i.e. always open **Apps** even when you don't need to change).
-    - Releases: To build your patched apps and release them. Set the above options accordingly and make a stable or a pre-release.
+   - Apps: To modify app related properties. (**Must configure**)
+   - Downloads: To modify download & installation of app properties. (**Must configure**)
+   - Merge: To merge your customization (locally on Tasker) with the `.env` file in your GitHub Repo. Only shown if you've made customization changes in _Apps_ or clicked it (i.e. always open **Apps** even when you don't need to change).
+   - Releases: To build your patched apps and release them. Set the above options accordingly and make a stable or a pre-release.
 4. If you have access to Join paid version, enable `RVX-Builds - New Release [Join]` Profile in `Profiles` Tab. Also enable `RVX-Builds - Check For Updates` if you want it to handle cancelled or errored out downloads due to any reason. Also, you need to add **JOIN API** [secrets](/auto/docs/extras.md#github-secrets). Here's [how to](/auto/docs/extras.md#join-api) do it.
 5. If you don't have access to Join paid version, enable `RVX-Builds - Check For Updates` Profile in `Profiles` Tab. Disable `RVX-Builds - New Release [Join]` in this case.
 6. After the successful release, the workflow would make an API call to Join (`RVX-Builds - New Release [Join]`) which would ultimately initialize an event and the downloader & installer task would run and work based upon your configuration of `Downloads` menu option in `RVX-Builds - Manager` task. Another workaround is that this profile `RVX-Builds - Check For Updates` would periodically (20 min; you can change) perform checks. It can also handle cancelled or errored out downloads.
@@ -72,12 +72,13 @@ It'll be better for yourself if you have some [basic knowledge about Tasker](htt
 8. Patched apps have been installed and apks are at `/storage/emulated/0/Tasker/rvx-builds/downloads/REPO_RELEASE_TAG_NAME/*.apk`. Note that you shouldn't delete any of those apks otherwise you'd face infinite-looping of downloads because of `6th - RVX-Builds - Check For Updates`. You may disable action `A11 - Handle Cancelled Downloads` in the linked task as a solution to it or select not to handle it in `Downloads` menu options.
 
 **Note:**
-   1. Initialization of the tasks may take sometime at some-points due to heavy scripting process. Kindly don't worry about all that. Also, make sure that you've a decent internet connection speed.
-   2. [Read here](/auto/docs/tasker-automation.md) for more details on the automation functionalities.
+
+1.  Initialization of the tasks may take sometime at some-points due to heavy scripting process. Kindly don't worry about all that. Also, make sure that you've a decent internet connection speed.
+2.  [Read here](/auto/docs/tasker-automation.md) for more details on the automation functionalities.
 
 ### Patching
 
-The patching is done using the CLI for all the builds. The `/apks` folder is used as the base folder in which you can source your `options.json` or whatever necessary files you need. Here's the list of [patch apps](../../tree/changelogs/auto/apps/README.md) and *incompletely* generated [`options.json`](../../tree/changelogs/auto/apps/options) which you can look into.
+The patching is done using the CLI for all the builds. The `/apks` folder is used as the base folder in which you can source your `options.json` or whatever necessary files you need. Here's the list of [patch apps](../../tree/changelogs/auto/apps/README.md) and _incompletely_ generated [`options.json`](../../tree/changelogs/auto/apps/options) which you can look into.
 
 **Note: A possible error while installing the released patched apks can be due to signature mismatch of the apk and it's installed app. In this case, either provide the same the keystore file to sign apks in `/apks` folder in GitHub repository and add `GLOBAL_KEYSTORE_FILE_NAME=*.keystore` in `.env` file OR simply delete (make backup if possible; one-time process) those already installed non-patched (same package) or patched apps.**
 
@@ -85,8 +86,8 @@ The patching is done using the CLI for all the builds. The `/apks` folder is use
 
 The `RVX-Builds - Project Updates` profile will let you know of any updates I push so, make sure it's enabled.
 
->> Taskernet - [**RVX-Builds**](https://taskernet.com/shares/?user=AS35m8k0QSchKA1x02SixFIhiL41a828J1qapOYfcEuyL2zSn%2FfJTN5WVSi01o18x6EAFb4%3D&id=Project%3ARVX-Builds)<br>
-[**Changelogs**](/auto/updates/CHANGELOG.md)
+> > Taskernet - [**RVX-Builds**](https://taskernet.com/shares/?user=AS35m8k0QSchKA1x02SixFIhiL41a828J1qapOYfcEuyL2zSn%2FfJTN5WVSi01o18x6EAFb4%3D&id=Project%3ARVX-Builds)<br>
+> > [**Changelogs**](/auto/updates/CHANGELOG.md)
 
 ## Credits
 

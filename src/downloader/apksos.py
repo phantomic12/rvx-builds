@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from src.app import APP
 from src.downloader.download import Downloader
 from src.exceptions import APKSosAPKDownloadError
-from src.utils import bs4_parser, handle_request_response, request_header, start_request
+from src.utils import bs4_parser, handle_request_response, make_request, request_header
 
 
 class ApkSos(Downloader):
@@ -19,7 +19,7 @@ class ApkSos(Downloader):
         :param page: Url of the page
         :param app: Name of the app
         """
-        r = start_request(page, headers=request_header)
+        r = make_request(page, headers=request_header)
         handle_request_response(r, page)
         soup = BeautifulSoup(r.text, bs4_parser)
         download_button = soup.find(class_="col-sm-12 col-md-8 text-center")
