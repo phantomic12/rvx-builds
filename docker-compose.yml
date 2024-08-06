@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   revanced:
     image: imxeren/docker-py-revanced

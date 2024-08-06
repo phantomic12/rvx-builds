@@ -109,7 +109,7 @@ jobs:
           sleep 10
 
   virustotal-scan:
-    needs: [ upload-to-github ]
+    needs: [upload-to-github]
     uses: nikhilbadyal/ghactions/.github/workflows/virustotal-scan.yml@main
     with:
       FILES: |
@@ -121,7 +121,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   upload-to-telegram:
-    needs: [ upload-to-github ]
+    needs: [upload-to-github]
     uses: nikhilbadyal/ghactions/.github/workflows/telegram-uploader.yml@main
     if: inputs.TELEGRAM_NO_ROOT_UPLOAD
     secrets:
@@ -133,7 +133,7 @@ jobs:
       MESSAGE: ${{ secrets.MESSAGE_NON_ROOT }}
 
   upload-to-telegram-root:
-    needs: [ upload-to-telegram ]
+    needs: [upload-to-telegram]
     uses: nikhilbadyal/ghactions/.github/workflows/telegram-uploader.yml@main
     if: inputs.TELEGRAM_ROOT_UPLOAD
     secrets:
@@ -182,7 +182,7 @@ jobs:
   cleanup:
     name: GitHub Cleanup
     if: inputs.CLEANUP
-    needs: [ upload-to-telegram ]
+    needs: [upload-to-telegram]
     uses: ./.github/workflows/github-cleanup.yml
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -190,7 +190,7 @@ jobs:
   join-notify:
     name: Join Notification
     if: inputs.JOIN_NOTIFY
-    needs: [ upload-to-github ]
+    needs: [upload-to-github]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
