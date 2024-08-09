@@ -8,22 +8,10 @@
     "value" : "Default"
   } ]
 }, {
-  "patchName" : "Change version code",
-  "options" : [ {
-    "key" : "ChangeVersionCode",
-    "value" : true
-  }, {
-    "key" : "VersionCode",
-    "value" : "2147483647"
-  }, {
-    "key" : "versionCode",
-    "value" : 2147483647
-  } ]
-}, {
   "patchName" : "Custom Shorts action buttons",
   "options" : [ {
     "key" : "IconType",
-    "value" : "youtubeoutline"
+    "value" : "round"
   } ]
 }, {
   "patchName" : "Custom branding icon for YouTube",
@@ -35,7 +23,7 @@
     "value" : true
   }, {
     "key" : "RestoreOldSplashAnimation",
-    "value" : true
+    "value" : null
   } ]
 }, {
   "patchName" : "Custom branding icon for YouTube Music",
@@ -56,7 +44,7 @@
   "patchName" : "Custom branding name for YouTube",
   "options" : [ {
     "key" : "AppName",
-    "value" : "RVX"
+    "value" : "YouTube ReVanced"
   } ]
 }, {
   "patchName" : "Custom branding name for YouTube Music",
@@ -86,22 +74,19 @@
     "value" : "custom_branding_icon"
   } ]
 }, {
-  "patchName" : "GmsCore support",
+  "patchName" : "Custom package name",
   "options" : [ {
-    "key" : "GmsCoreVendorGroupId",
-    "value" : "app.revanced"
-  }, {
-    "key" : "CheckGmsCore",
-    "value" : true
-  }, {
     "key" : "PackageNameYouTube",
     "value" : "app.rvx.android.youtube"
   }, {
     "key" : "PackageNameYouTubeMusic",
     "value" : "app.rvx.android.apps.youtube.music"
-  }, {
-    "key" : "gmsCoreVendorGroupId",
-    "value" : "app.revanced"
+  } ]
+}, {
+  "patchName" : "Hide layout components",
+  "options" : [ {
+    "key" : "ForceHideVoiceSearchButton",
+    "value" : null
   } ]
 }, {
   "patchName" : "Overlay buttons",
@@ -155,13 +140,19 @@
     "value" : "@android:color/white"
   } ]
 }, {
+  "patchName" : "Toolbar components",
+  "options" : [ {
+    "key" : "ForceHideVoiceSearchButton",
+    "value" : null
+  } ]
+}, {
   "patchName" : "Translations for YouTube",
   "options" : [ {
     "key" : "CustomTranslations",
     "value" : null
   }, {
     "key" : "SelectedTranslations",
-    "value" : "ar, el-rGR, es-rES, de-rDE, fr-rFR, hu-rHU, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW"
+    "value" : "ar, el-rGR, es-rES, fr-rFR, hu-rHU, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW"
   }, {
     "key" : "SelectedStringResources",
     "value" : "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu"
@@ -185,10 +176,10 @@
     "value" : "extension"
   } ]
 }, {
-  "patchName" : "Spoof client",
+  "patchName" : "Spoof Android device ID",
   "options" : [ {
-    "key" : "client-id",
-    "value" : null
+    "key" : "android-device-id",
+    "value" : "0011223344556677"
   } ]
 }, {
   "patchName" : "Custom theme",
@@ -206,10 +197,10 @@
     "value" : "#ff169c46"
   } ]
 }, {
-  "patchName" : "Spoof Android device ID",
+  "patchName" : "GmsCore support",
   "options" : [ {
-    "key" : "android-device-id",
-    "value" : "0011223344556677"
+    "key" : "gmsCoreVendorGroupId",
+    "value" : "app.revanced"
   } ]
 }, {
   "patchName" : "Hex",
@@ -227,12 +218,6 @@
     "value" : null
   } ]
 }, {
-  "patchName" : "Change header",
-  "options" : [ {
-    "key" : "header",
-    "value" : "revanced*borderless"
-  } ]
-}, {
   "patchName" : "Custom branding",
   "options" : [ {
     "key" : "appName",
@@ -240,5 +225,17 @@
   }, {
     "key" : "iconPath",
     "value" : "ReVanced*Logo"
+  } ]
+}, {
+  "patchName" : "Change header",
+  "options" : [ {
+    "key" : "header",
+    "value" : "revanced*borderless"
+  } ]
+}, {
+  "patchName" : "Spoof client",
+  "options" : [ {
+    "key" : "client-id",
+    "value" : null
   } ]
 } ]
