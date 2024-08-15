@@ -126,7 +126,7 @@ def format_changelog(response):
         f"# {source_name}\n\n"
         f"***Release Version: [{response['tag_name']}]({response['html_url']})***  \n"
         f"***Release Date: {release_date}***  \n"
-        f"***Changelog:***\n\n{response['body']}\n\n"
+        f"<details>\n<summary><b><i>Changelog:</i></b></summary>\n\n{response['body']}</details>\n\n"
     )
     return f"{content}"
 
