@@ -19,7 +19,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install python dependencies
-        run: pip install -r requirements.txt
+        ## Ref: https://github.com/astral-sh/uv/issues/1386
+        run: |
+          pip install uv
+          uv venv .venv
+          echo "VIRTUAL_ENV=.venv" >> $GITHUB_ENV
+          echo "$PWD/.venv/bin" >> $GITHUB_PATH
+          uv pip install -r requirements.txt
 
       - name: Check for updates
         env:
