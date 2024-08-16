@@ -25,10 +25,16 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r auto/scripts/requirements.txt
+        ## Ref: https://github.com/astral-sh/uv/issues/1386
+        run: |
+          pip install uv
+          uv venv .venv
+          echo "VIRTUAL_ENV=.venv" >> $GITHUB_ENV
+          echo "$PWD/.venv/bin" >> $GITHUB_PATH
+          uv pip install -r auto/scripts/requirements.txt
 
       #- name: Setup Chrome
-       # uses: browser-actions/setup-chrome@v1.2.0
+      # uses: browser-actions/setup-chrome@v1.2.0
 
       - name: Update .py file contents
         env:
@@ -57,10 +63,10 @@ jobs:
           branch: changelogs
           create_branch: true
           skip_checkout: true
-          file_pattern: 'auto/json/env.json auto/apps/apps-merged.json'
-          commit_options: '--allow-empty'
+          file_pattern: "auto/json/env.json auto/apps/apps-merged.json"
+          commit_options: "--allow-empty"
           commit_message: 📖 Parsed .env into env.json
-          push_options: '--force'
+          push_options: "--force"
 
       - name: Parse env.json to .env
         run: |
@@ -74,6 +80,6 @@ jobs:
           skip_checkout: true
           file_pattern: .
           repository: .
-          commit_options: '--allow-empty'
+          commit_options: "--allow-empty"
           commit_message: 📝 Add generated files
-          push_options: '--force'
+          push_options: "--force"
